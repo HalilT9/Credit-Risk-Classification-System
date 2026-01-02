@@ -59,7 +59,7 @@ Install:
 pip install -r requirements.txt
 
 
-5) Model Details & Methodology
+## 5) Model Details & Methodology
 We benchmarked multiple supervised models:
 ``
 Logistic Regression
@@ -77,7 +77,7 @@ Interpretability:
 
 Feature influence is inspected via SVM coefficients (see shap_grafigi.png).
 
-6) Instructions for Execution
+## 6) Instructions for Execution
 A) ``Run the Streamlit App`` (Inference)
 -``git clone https://github.com/HalilT9/Credit-Risk-Classification-System.git
 -cd Credit-Risk-Classification-System
@@ -98,7 +98,7 @@ evaluation metrics
 generation of plots/images saved in the repository
 ``
 
-7) Model Results —`` Quantitative Evaluation Metrics``
+## 7) Model Results —`` Quantitative Evaluation Metrics``
 
 7.1 Final Model (SVM) — ``Test Set Metrics``
 From the test-set confusion matrix (N=200) (confusion_matrix.png):
@@ -127,7 +127,7 @@ Neural Network (MLP): 0.68
 XGBoost: 0.74
 ``
 
-8) Example Inference Visualizations (Test Set)
+## 8) Example Inference Visualizations (Test Set)
 
 The repository includes multiple test/evaluation visualizations:
 
@@ -139,7 +139,7 @@ The repository includes multiple test/evaluation visualizations:
 
 
 
-9) Training Process Plots (Loss / Metric Curves)
+## 9) Training Process Plots (Loss / Metric Curves)
 SVM is not trained via epoch-based gradient descent, so a classical “loss curve” is not applicable.
 However, this repository includes a metric-curve illustrating the improvement of Recall during the tuning/optimization phase:
 ``genetic_graph.png ``— Recall score trend over optimization iterations (“generations”)
@@ -147,17 +147,17 @@ However, this repository includes a metric-curve illustrating the improvement of
 
 
 
-10) Project Presentation (PDF)
+## 10) Project Presentation (PDF)
 credit_risk_classification_presentation.pdf — Final presentation file in PDF format
 
 
 
-11) Experiment-to-Repository Consistency Statement
+## 11) Experiment-to-Repository Consistency Statement
 All results, metrics, and figures included in the final presentation are produced by the code and experiments documented in this repository, primarily in Project.ipynb, and exported as the image files listed above.
 
 
 
-13) Repository Contents (Complete Source Code)
+## 12) Repository Contents (Complete Source Code)
 ``app.py`` — Streamlit inference application
 ``Project.ipynb ``— complete training + evaluation notebook
 ``german_credit_data.csv ``— dataset
@@ -165,3 +165,4 @@ All results, metrics, and figures included in the final presentation are produce
 ``final_model.pkl, scaler.pkl, model_columns.pkl, final_model_name.pkl`` — saved artifacts
 ``*.png ``— evaluation plots and system diagrams
 ``credit_risk_classification_presentation.pdf ``— final presentation
+
