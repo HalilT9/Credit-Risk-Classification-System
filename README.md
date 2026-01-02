@@ -61,16 +61,23 @@ pip install -r requirements.txt
 
 ## 5) Model Details & Methodology
 We benchmarked multiple supervised models:
-``
-Logistic Regression
-Random Forest
-AdaBoost
-XGBoost
-Neural Network (MLP)
-SVM (Linear) ✅ (final selected model)
-``
+
+``Logistic Regression``
+
+``Random Forest``
+
+``AdaBoost``
+
+``XGBoost``
+
+``Neural Network (MLP)``
+
+``SVM (Linear) ✅ (final selected model)``
+
+
 
 Final model: Support Vector Machine (SVC) with linear kernel.
+
 Motivation: best Recall on the minority class (“Bad”), aligning with the risk-focused objective.
 
 Interpretability:
@@ -78,12 +85,17 @@ Interpretability:
 Feature influence is inspected via SVM coefficients (see shap_grafigi.png).
 
 ## 6) Instructions for Execution
-A) ``Run the Streamlit App`` (Inference)
--``git clone https://github.com/HalilT9/Credit-Risk-Classification-System.git
--cd Credit-Risk-Classification-System
--pip install -r requirements.txt
--streamlit run app.py
-``
+A) Run the Streamlit App (Inference)
+
+-``git clone https://github.com/HalilT9/Credit-Risk-Classification-System.git``
+
+``-cd Credit-Risk-Classification-System``
+
+``-pip install -r requirements.txt``
+
+``-streamlit run app.py``
+
+
 
 B) Reproduce Experiments (Training + Evaluation)
 ``Open and run:``
@@ -172,6 +184,7 @@ All results, metrics, and figures included in the final presentation are produce
 ``*.png ``— evaluation plots and system diagrams
 
 ``credit_risk_classification_presentation.pdf ``— final presentation
+
 
 
 
