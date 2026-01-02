@@ -162,18 +162,27 @@ XGBoost: 0.74
 The repository includes multiple test/evaluation visualizations:
 
 ``confusion_matrix.png`` — confusion matrix on the test set (SVM)
+
 ``model_comparison.png`` — model benchmark (Accuracy vs Recall) and ROC curves
+
 ``anomaly_graph.png`` — PCA projection (risk as anomaly perspective)
+
 ``shap_grafigi.png`` — feature importance / coefficient magnitude (SVM)
+
 ``project_pipeline.png ``— system architecture / pipeline overview
+
 
 
 
 ## 9) Training Process Plots (Loss / Metric Curves)
 SVM is not trained via epoch-based gradient descent, so a classical “loss curve” is not applicable.
+
 However, this repository includes a metric-curve illustrating the improvement of Recall during the tuning/optimization phase:
+
 ``genetic_graph.png ``— Recall score trend over optimization iterations (“generations”)
+
 (Details and the code producing this figure are documented in Project.ipynb.)
+
 
 
 
@@ -201,6 +210,7 @@ All results, metrics, and figures included in the final presentation are produce
 ``*.png ``— evaluation plots and system diagrams
 
 ``credit_risk_classification_presentation.pdf ``— final presentation
+
 
 
 
