@@ -1,4 +1,4 @@
-#  CreditGuard AI: Credit Risk Classification System
+#  CreditGuard AI: Credit Risk Classification
 
 ## 1. Description of the Problem
 Credit risk assessment is a critical challenge for financial institutions. The primary goal of this project is to minimize **Capital Loss** (financial loss due to loan defaults).
@@ -41,7 +41,7 @@ We benchmarked multiple algorithms including **Random Forest, XGBoost, and SVM**
 * `*.pkl`: Serialized model files.
 
 ## 6. Evaluation Metrics & Visualizations (Requirement Mapping)
-In accordance with the project requirements, the following visualizations are provided in the `Credıt Rısk Classıfıcatıon Usıng Machıne Learnıng Technıques.pdf` and `Project.ipynb`:
+In accordance with the project requirements, the following visualizations are provided in the `credit_risk_classification_presentation.pdf` and `Project.ipynb`:
 
 * **Quantitative Metrics:**
     * Full `Classification Report` (Precision, Recall, F1-Score) is available in the Notebook.
@@ -55,5 +55,6 @@ In accordance with the project requirements, the following visualizations are pr
     * Since SVM is not an iterative Deep Learning model, standard "Loss Curves" do not apply.
 
     * **Evolutionary Optimization Curve**: We provide a plot demonstrating the improvement of the **Recall Score over generations** during the Hyperparameter Tuning process (See Presentation Slide: "Evolutionary Optimization").
+
 
 
