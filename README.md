@@ -140,15 +140,22 @@ Good F1-score: 0.72
 For the full classification report (including macro/weighted averages), see Project.ipynb.
 
 7.2 ROC-AUC Benchmark (Risk Detection Capability)
-``
+```
 AUC values shown in model_comparison.png:
+
 Logistic Regression: 0.75
+
 Random Forest: 0.76
+
 AdaBoost: 0.75
+
 SVM: 0.77
+
 Neural Network (MLP): 0.68
+
 XGBoost: 0.74
-``
+
+```
 
 ## 8) Example Inference Visualizations (Test Set)
 
@@ -194,6 +201,7 @@ All results, metrics, and figures included in the final presentation are produce
 ``*.png ``— evaluation plots and system diagrams
 
 ``credit_risk_classification_presentation.pdf ``— final presentation
+
 
 
 
