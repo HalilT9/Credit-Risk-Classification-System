@@ -23,7 +23,7 @@ We benchmarked multiple algorithms including **Random Forest, XGBoost, and SVM**
 
 1.  **Clone the repository:**
     ```bash
-    git clone [YOUR_REPO_LINK_HERE]
+    git clone https://github.com/HalilT9/Credit-Risk-Classification-System.git
     ```
 2.  **Install dependencies:**
     ```bash
@@ -53,4 +53,5 @@ In accordance with the project requirements, the following visualizations are pr
 
 * **Training Process Plot:**
     * Since SVM is not an iterative Deep Learning model, standard "Loss Curves" do not apply.
+
     * **Evolutionary Optimization Curve**: We provide a plot demonstrating the improvement of the **Recall Score over generations** during the Hyperparameter Tuning process (See Presentation Slide: "Evolutionary Optimization").
