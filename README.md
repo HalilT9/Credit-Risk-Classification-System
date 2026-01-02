@@ -116,6 +116,7 @@ Good F1-score: 0.72
 ``
 
 For the full classification report (including macro/weighted averages), see Project.ipynb.
+
 7.2 ROC-AUC Benchmark (Risk Detection Capability)
 ``
 AUC values shown in model_comparison.png:
@@ -159,10 +160,18 @@ All results, metrics, and figures included in the final presentation are produce
 
 ## 12) Repository Contents (Complete Source Code)
 ``app.py`` — Streamlit inference application
+
 ``Project.ipynb ``— complete training + evaluation notebook
+
 ``german_credit_data.csv ``— dataset
+
 ``requirements.txt`` — environment specification
+
 ``final_model.pkl, scaler.pkl, model_columns.pkl, final_model_name.pkl`` — saved artifacts
+
 ``*.png ``— evaluation plots and system diagrams
+
 ``credit_risk_classification_presentation.pdf ``— final presentation
+
+
 
