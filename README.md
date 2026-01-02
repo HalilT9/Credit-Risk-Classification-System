@@ -1,60 +1,167 @@
-#  CreditGuard AI: Credit Risk Classification
+# CreditGuard AI — Credit Risk Classification System
 
-## 1. Description of the Problem
-Credit risk assessment is a critical challenge for financial institutions. The primary goal of this project is to minimize **Capital Loss** (financial loss due to loan defaults).
+This repository contains a complete Machine Learning project for **credit risk assessment** using the **German Credit dataset (N=1000)**. The system is deployed as a **Streamlit application** and includes training/evaluation code, saved model artifacts, quantitative metrics, visualizations, and the final presentation (PDF).
 
-Our objective is to build a Machine Learning model that identifies "Bad" (Risk) customers with high sensitivity (**Recall**), ensuring that potential defaulters are rejected to protect the bank's assets.
+---
 
-## 2. Dataset and Preprocessing
-**Dataset:** German Credit Dataset (N=1000).
-* **Imbalance Handling:** Used **SMOTE (Synthetic Minority Over-sampling Technique)** to balance the dataset.
-* **Missing Values:** 'Saving accounts' and 'Checking account' missing values were treated as a separate category ("unknown"), which proved to be a significant predictor.
-* **Encoding:** One-Hot Encoding applied to categorical variables.
-* **Scaling:** Numerical features standardized using `StandardScaler`.
+## 1) Description of the Problem
 
-## 3. Methodology & Model Architecture
-We benchmarked multiple algorithms including **Random Forest, XGBoost, and SVM**.
+Credit risk assessment is critical for financial institutions because **loan defaults create capital loss**.  
+We formulate the task as **binary classification**:
 
-* **Selected Model:** SVM (Support Vector Classifier) with Linear Kernel.
-* **Motivation:** SVM provided the best **Recall (approx. 80%)** for the minority class, aligning with our "Safety First" banking strategy.
-* **Dominant Feature:** Checking Account Status was found to be the strongest predictor of risk.
+- **Good (Approve)**: low-risk applicant  
+- **Bad (Reject)**: high-risk applicant
 
-## 4. How to Run (Local Execution)
+**Primary goal:** maximize **Recall for the “Bad” class** (risk detection sensitivity).  
+Reason: a **false negative** (predicting *Good* for a truly risky borrower) is typically more costly than a false positive in “safety-first” banking policies.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/HalilT9/Credit-Risk-Classification-System.git
-    ```
-2.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  **Run the application:**
-    ```bash
-    streamlit run app.py
-    ```
+---
 
-## 5. Files Description
-* `app.py`: Streamlit web application.
-* `Project.ipynb`: Training and Evaluation Notebook.
-* `Credıt Rısk Classıfıcatıon Usıng Machıne Learnıng Technıques.pdf`: Project presentation slides.
-* `*.pkl`: Serialized model files.
+## 2) Dataset
 
-## 6. Evaluation Metrics & Visualizations (Requirement Mapping)
-In accordance with the project requirements, the following visualizations are provided in the `credit_risk_classification_presentation.pdf` and `Project.ipynb`:
+- **Dataset:** German Credit Dataset (**N=1000**)
+- **Included file:** `german_credit_data.csv`
 
-* **Quantitative Metrics:**
-    * Full `Classification Report` (Precision, Recall, F1-Score) is available in the Notebook.
-    * **Primary Metric:** Recall (0.80) to minimize financial risk.
+Target encoding:
+- `Risk = 1` → bad (Reject)
+- `Risk = 0` → good (Approve)
 
-* **Inference Visualizations:**
-    * **Confusion Matrix:** Visualizes the TP/TN/FP/FN distribution on the Test Set.
-    * **PCA Projection:** Visualizes the test set distribution, identifying risky customers as statistical anomalies.
+---
 
-* **Training Process Plot:**
-    * Since SVM is not an iterative Deep Learning model, standard "Loss Curves" do not apply.
+## 3) Preprocessing Procedures
 
-    * **Evolutionary Optimization Curve**: We provide a plot demonstrating the improvement of the **Recall Score over generations** during the Hyperparameter Tuning process (See Presentation Slide: "Evolutionary Optimization").
+Implemented in `Project.ipynb` and mirrored in the deployed pipeline (`app.py` uses the saved preprocessing artifacts).
+
+- **Missing values handling**
+  - `SavingAccounts` and `CheckingAccount` missing values are treated as a separate category: **Unknown/unknown**
+- **Encoding**
+  - One-Hot Encoding for categorical features
+- **Scaling**
+  - Numerical features scaled with `StandardScaler` (saved as `scaler.pkl`)
+- **Class imbalance**
+  - SMOTE is applied on the **training split only** to address minority-class imbalance
+
+Saved artifacts used by the app:
+- `scaler.pkl` — fitted scaler
+- `model_columns.pkl` — expected one-hot column order
+- `final_model.pkl` — trained classifier
+
+---
+
+## 4) Environment / Dependencies
+
+This repository includes an environment specification file:
+
+- `requirements.txt`
+
+Install:
+``bash
+pip install -r requirements.txt
+
+
+5) Model Details & Methodology
+We benchmarked multiple supervised models:
+``
+Logistic Regression
+Random Forest
+AdaBoost
+XGBoost
+Neural Network (MLP)
+SVM (Linear) ✅ (final selected model)
+``
+
+Final model: Support Vector Machine (SVC) with linear kernel.
+Motivation: best Recall on the minority class (“Bad”), aligning with the risk-focused objective.
+
+Interpretability:
+
+Feature influence is inspected via SVM coefficients (see shap_grafigi.png).
+
+6) Instructions for Execution
+A) ``Run the Streamlit App`` (Inference)
+-``git clone https://github.com/HalilT9/Credit-Risk-Classification-System.git
+-cd Credit-Risk-Classification-System
+-pip install -r requirements.txt
+-streamlit run app.py
+``
+
+B) Reproduce Experiments (Training + Evaluation)
+``Open and run:``
+Project.ipynb
+
+
+This notebook contains:
+``
+preprocessing steps
+model benchmarking
+evaluation metrics
+generation of plots/images saved in the repository
+``
+
+7) Model Results —`` Quantitative Evaluation Metrics``
+
+7.1 Final Model (SVM) — ``Test Set Metrics``
+From the test-set confusion matrix (N=200) (confusion_matrix.png):
+Confusion matrix values:
+``
+TN=86, FP=54, FN=12, TP=48
+Key metrics (Bad = positive class):
+Accuracy: 0.67
+Bad Recall (Sensitivity): 0.80
+Bad Precision: 0.47
+Bad F1-score: 0.59
+Good Precision: 0.88
+Good Recall: 0.61
+Good F1-score: 0.72
+``
+
+For the full classification report (including macro/weighted averages), see Project.ipynb.
+7.2 ROC-AUC Benchmark (Risk Detection Capability)
+``
+AUC values shown in model_comparison.png:
+Logistic Regression: 0.75
+Random Forest: 0.76
+AdaBoost: 0.75
+SVM: 0.77
+Neural Network (MLP): 0.68
+XGBoost: 0.74
+``
+
+8) Example Inference Visualizations (Test Set)
+
+The repository includes multiple test/evaluation visualizations:
+
+``confusion_matrix.png`` — confusion matrix on the test set (SVM)
+``model_comparison.png`` — model benchmark (Accuracy vs Recall) and ROC curves
+``anomaly_graph.png`` — PCA projection (risk as anomaly perspective)
+``shap_grafigi.png`` — feature importance / coefficient magnitude (SVM)
+``project_pipeline.png ``— system architecture / pipeline overview
 
 
 
+9) Training Process Plots (Loss / Metric Curves)
+SVM is not trained via epoch-based gradient descent, so a classical “loss curve” is not applicable.
+However, this repository includes a metric-curve illustrating the improvement of Recall during the tuning/optimization phase:
+``genetic_graph.png ``— Recall score trend over optimization iterations (“generations”)
+(Details and the code producing this figure are documented in Project.ipynb.)
+
+
+
+10) Project Presentation (PDF)
+credit_risk_classification_presentation.pdf — Final presentation file in PDF format
+
+
+
+11) Experiment-to-Repository Consistency Statement
+All results, metrics, and figures included in the final presentation are produced by the code and experiments documented in this repository, primarily in Project.ipynb, and exported as the image files listed above.
+
+
+
+13) Repository Contents (Complete Source Code)
+``app.py`` — Streamlit inference application
+``Project.ipynb ``— complete training + evaluation notebook
+``german_credit_data.csv ``— dataset
+``requirements.txt`` — environment specification
+``final_model.pkl, scaler.pkl, model_columns.pkl, final_model_name.pkl`` — saved artifacts
+``*.png ``— evaluation plots and system diagrams
+``credit_risk_classification_presentation.pdf ``— final presentation
