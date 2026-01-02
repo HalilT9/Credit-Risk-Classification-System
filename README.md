@@ -84,6 +84,8 @@ Interpretability:
 
 Feature influence is inspected via SVM coefficients (see shap_grafigi.png).
 
+---
+
 ## 6) Instructions for Execution
 A) Run the Streamlit App (Inference)
 
@@ -109,6 +111,8 @@ model benchmarking
 evaluation metrics
 generation of plots/images saved in the repository
 ``
+
+---
 
 ## 7) Model Results —`` Quantitative Evaluation Metrics``
 
@@ -157,6 +161,8 @@ XGBoost: 0.74
 
 ```
 
+---
+
 ## 8) Example Inference Visualizations (Test Set)
 
 The repository includes multiple test/evaluation visualizations:
@@ -173,6 +179,7 @@ The repository includes multiple test/evaluation visualizations:
 
 
 
+---
 
 ## 9) Training Process Plots (Loss / Metric Curves)
 SVM is not trained via epoch-based gradient descent, so a classical “loss curve” is not applicable.
@@ -185,16 +192,20 @@ However, this repository includes a metric-curve illustrating the improvement of
 
 
 
+---
 
 ## 10) Project Presentation (PDF)
 credit_risk_classification_presentation.pdf — Final presentation file in PDF format
 
 
 
+---
+
 ## 11) Experiment-to-Repository Consistency Statement
 All results, metrics, and figures included in the final presentation are produced by the code and experiments documented in this repository, primarily in Project.ipynb, and exported as the image files listed above.
 
 
+---
 
 ## 12) Repository Contents (Complete Source Code)
 ``app.py`` — Streamlit inference application
@@ -210,6 +221,7 @@ All results, metrics, and figures included in the final presentation are produce
 ``*.png ``— evaluation plots and system diagrams
 
 ``credit_risk_classification_presentation.pdf ``— final presentation
+
 
 
 
