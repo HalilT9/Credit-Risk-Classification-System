@@ -37,7 +37,7 @@ We benchmarked multiple algorithms including **Random Forest, XGBoost, and SVM**
 ## 5. Files Description
 * `app.py`: Streamlit web application.
 * `Project.ipynb`: Training and Evaluation Notebook.
-* `Credit_Risk_Presentation.pdf`: Project presentation slides.
+* `Credıt Rısk Classıfıcatıon Usıng Machıne Learnıng Technıques.pdf`: Project presentation slides.
 * `*.pkl`: Serialized model files.
 
 ## 6. Evaluation Metrics & Visualizations (Requirement Mapping)
@@ -55,4 +55,5 @@ In accordance with the project requirements, the following visualizations are pr
     * Since SVM is not an iterative Deep Learning model, standard "Loss Curves" do not apply.
 
     * **Evolutionary Optimization Curve**: We provide a plot demonstrating the improvement of the **Recall Score over generations** during the Hyperparameter Tuning process (See Presentation Slide: "Evolutionary Optimization").
+
 
