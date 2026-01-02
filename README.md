@@ -113,19 +113,29 @@ generation of plots/images saved in the repository
 ## 7) Model Results —`` Quantitative Evaluation Metrics``
 
 7.1 Final Model (SVM) — ``Test Set Metrics``
+```
 From the test-set confusion matrix (N=200) (confusion_matrix.png):
 Confusion matrix values:
-``
+
 TN=86, FP=54, FN=12, TP=48
+
 Key metrics (Bad = positive class):
+
 Accuracy: 0.67
+
 Bad Recall (Sensitivity): 0.80
+
 Bad Precision: 0.47
+
 Bad F1-score: 0.59
+
 Good Precision: 0.88
+
 Good Recall: 0.61
+
 Good F1-score: 0.72
-``
+
+```
 
 For the full classification report (including macro/weighted averages), see Project.ipynb.
 
@@ -184,6 +194,7 @@ All results, metrics, and figures included in the final presentation are produce
 ``*.png ``— evaluation plots and system diagrams
 
 ``credit_risk_classification_presentation.pdf ``— final presentation
+
 
 
 
